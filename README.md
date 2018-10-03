@@ -5,7 +5,7 @@
 2. In folder compile using:
   * `gcc program.c -o program`
 3. Run the program using:
-  * `./program 3 <param>`
+  * `./program <param>`
   * Only 'wolf' and 'mickey' are allowed params
 
 ## Task
