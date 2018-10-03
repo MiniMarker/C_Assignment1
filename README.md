@@ -17,17 +17,21 @@ To accomplsh the merge of the files i need to read one row at the time and appen
 The Wolf constists of a grid of 3x5 files.
 The grid below represents files in this format:
  - part_x_y_wolf.txt
-
-0,0 - 1,0 - 2,0<br/><br/>
-0,1 - 1,1 - 2,1<br/><br/>
-0,2 - 1,2 - 2,2<br/><br/>
-0,3 - 1,3 - 2,3<br/><br/>
-0,4 - 1,4 - 2,4<br/><br/>
+ 
+|          | Column 1 | Column 2 | Column 3 |
+|:--------:|:--------:|:--------:|:--------:|
+| Row 1    | 0,0      | 1,0      | 2,0      |
+| Row 2    | 0,1      | 1,1      | 2,1      |
+| Row 3    | 0,2      | 1,2      | 2,2      |
+| Row 4    | 0,3      | 1,3      | 2,3      |
+| Row 5    | 0,4      | 1,4      | 2,4      |
 
 ### Mickey:
 The Mickey constists of a grid of 3x2 files.
 The grid below represents files in this format:
  - part_x_y_mickey.txt
 
-0,0 - 1,0 - 2,0<br/><br/>
-0,1 - 1,1 - 2,1<br/><br/>
+|          | Column 1 | Column 2 | Column 3 |
+|:--------:|:--------:|:--------:|:--------:|
+| Row 1    | 0,0      | 1,0      | 2,0      |
+| Row 2    | 0,1      | 1,1      | 2,1      |
