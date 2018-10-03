@@ -17,6 +17,14 @@ To accomplsh the merge of the files i need to read one row at the time and appen
 The Wolf constists of a grid of 3x5 files.
 The grid below represents files in this format:
  - part_x_y_wolf.txt
+ 
+| Column 1 | Column 2 | Column 3 |
+| -------- |:--------:| --------:|
+| 0,0      | 1,0      | 2,0      |
+| 0,1      | 1,1      | 2,1      |
+| 0,2      | 1,2      | 2,2      |
+| 0,3      | 1,3      | 2,3      |
+| 0,4      | 1,4      | 2,4      |
 
 0,0 - 1,0 - 2,0<br/><br/>
 0,1 - 1,1 - 2,1<br/><br/>
