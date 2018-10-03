@@ -57,7 +57,3 @@ dkms.conf
 
 
 # End of https://www.gitignore.io/api/c
-
-/wolf/result.txt
-/mickey/result.txt
-/program

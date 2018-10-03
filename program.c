@@ -10,10 +10,11 @@ int main(int argc, char* argv[]){
 	int maxIterations = 0;
 	
 	//setting max iterations based on the users input
-	if (argv[1] == NULL) {
+
+	if (argv[1] == NULL || argc != 2 ) {
 	
 		printf("ERROR! Missing param!\n");
-		printf("Allowed params are: 'wolf' or 'mickey'");
+		printf("Allowed params are: 'wolf' or 'mickey'\n");
 		return -1;
 	
 	} else {
@@ -31,7 +32,7 @@ int main(int argc, char* argv[]){
 		} else {
 		
 			printf("ERROR!! wrong param!\n");
-			printf("Allowed params are: 'wolf' or 'mickey'");
+			printf("Allowed params are: 'wolf' or 'mickey'\n");
 			return -1;
 			
 		}
@@ -43,10 +44,10 @@ int main(int argc, char* argv[]){
 
 void printAsciiArt(int maxIterations, char* paramInput){
 
-	char 	filename1[35], filename2[35], filename3[35], fileLine1[30], 
-			fileLine2[30], fileLine3[30], resultFilePath[50];
+	char filename1[35], filename2[35], filename3[35], fileLine1[30], 
+			fileLine2[30], fileLine3[30], resultFilePath[50], terminalCmd[50];
 
-	FILE 	*file1, *file2, *file3, *resultFile;
+	FILE *file1, *file2, *file3, *resultFile;
 	
 	//concatinating resultFilePath with given param as input and opens the file
 	sprintf(resultFilePath, "./%s/result.txt", paramInput);
@@ -84,7 +85,6 @@ void printAsciiArt(int maxIterations, char* paramInput){
 			}
 			
 			fprintf(resultFile, "%s%s%s\n", fileLine1, fileLine2, fileLine3);
-			
 		}
 		
 		//closing files
@@ -95,4 +95,6 @@ void printAsciiArt(int maxIterations, char* paramInput){
 	
 	//closing result files
 	fclose(resultFile);
+
+	printf("Merging complete, please open '%s' to see the result!\n", resultFilePath);
 }
