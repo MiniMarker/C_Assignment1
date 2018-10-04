@@ -3,7 +3,7 @@
 ## How to run the program
 1. Clone this repo
 2. In folder compile using:
-  * `gcc program.c -o program`
+  * `gcc main.c program.c -o program`
 3. Run the program using:
   * `./program <param>`
   * Only 'wolf' and 'mickey' are allowed params
@@ -20,11 +20,11 @@ The grid below represents files in this format:
  
 |          | Column 1 | Column 2 | Column 3 |
 |:--------:|:--------:|:--------:|:--------:|
-| Row 1    | 0,0      | 1,0      | 2,0      |
-| Row 2    | 0,1      | 1,1      | 2,1      |
-| Row 3    | 0,2      | 1,2      | 2,2      |
-| Row 4    | 0,3      | 1,3      | 2,3      |
-| Row 5    | 0,4      | 1,4      | 2,4      |
+| Row 1    | 0_0      | 1_0      | 2_0      |
+| Row 2    | 0_1      | 1_1      | 2_1      |
+| Row 3    | 0_2      | 1_2      | 2_2      |
+| Row 4    | 0_3      | 1_3      | 2_3      |
+| Row 5    | 0_4      | 1_4      | 2_4      |
 
 ### Mickey:
 The Mickey constists of a grid of 3x2 files.
@@ -33,5 +33,5 @@ The grid below represents files in this format:
 
 |          | Column 1 | Column 2 | Column 3 |
 |:--------:|:--------:|:--------:|:--------:|
-| Row 1    | 0,0      | 1,0      | 2,0      |
-| Row 2    | 0,1      | 1,1      | 2,1      |
+| Row 1    | 0_0      | 1_0      | 2_0      |
+| Row 2    | 0_1      | 1_1      | 2_1      |
