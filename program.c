@@ -66,6 +66,4 @@ void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
 
 	printf("Merging complete, please open '%s' to see the result!\n", resultFilePath);
 
-	system("gedit");
-
 }

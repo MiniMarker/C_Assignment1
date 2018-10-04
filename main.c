@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
 		if(!strcmp(paramInput, "wolf")) {
 			
 			numRows = 5;
-            numCharsPerRow = 30;
+			numCharsPerRow = 30;
 			
 		} else if (!strcmp(paramInput, "mickey")) {
 			
