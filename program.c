@@ -7,10 +7,9 @@
 int main(int argc, char* argv[]){
 	
 	char paramInput[10];
-	int maxIterations = 0;
+	int numRows = 0;
 	
 	//setting max iterations based on the users input
-
 	if (argv[1] == NULL || argc != 2 ) {
 	
 		printf("ERROR! Missing param!\n");
@@ -23,11 +22,11 @@ int main(int argc, char* argv[]){
 	
 		if(!strcmp(paramInput, "wolf")) {
 			
-			maxIterations = 5;
+			numRows = 5;
 			
 		} else if (!strcmp(paramInput, "mickey")) {
 			
-			maxIterations = 2;
+			numRows = 2;
 			
 		} else {
 		
@@ -38,14 +37,19 @@ int main(int argc, char* argv[]){
 		}
 	}
 
-	printAsciiArt(maxIterations, paramInput);
+	printAsciiArt(numRows, paramInput);
 	return 0;
 }
-
-void printAsciiArt(int maxIterations, char* paramInput){
+/**
+ * @brief 
+ * 
+ * @param numRows 
+ * @param paramInput 
+ */
+void printAsciiArt(int numRows, char* paramInput){
 
 	char filename1[35], filename2[35], filename3[35], fileLine1[30], 
-			fileLine2[30], fileLine3[30], resultFilePath[50], terminalCmd[50];
+			fileLine2[30], fileLine3[30], resultFilePath[50];
 
 	FILE *file1, *file2, *file3, *resultFile;
 	
@@ -54,7 +58,7 @@ void printAsciiArt(int maxIterations, char* paramInput){
 	resultFile = fopen(resultFilePath, "w+");
 	
 	//printing content char by char
-	for(int y = 0; y < maxIterations; y++) {
+	for(int y = 0; y < numRows; y++) {
 	
 		int x = 0;
 		
