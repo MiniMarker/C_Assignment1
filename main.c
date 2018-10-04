@@ -15,28 +15,26 @@ int main(int argc, char* argv[]){
 		printf("ERROR! Missing param!\n");
 		printf("Allowed params are: 'wolf' or 'mickey'\n");
 		return -1;
+	} 
+    
+	strcpy(paramInput, argv[1]);
 	
-	} else {
-
-		strcpy(paramInput, argv[1]);
-	
-		if(!strcmp(paramInput, "wolf")) {
-			
-			numRows = 5;
-			numCharsPerRow = 30;
-			
-		} else if (!strcmp(paramInput, "mickey")) {
-			
-			numRows = 2;
-            numCharsPerRow = 30;
-			
-		} else {
+    if(!strcmp(paramInput, "wolf")) {
 		
-			printf("ERROR!! wrong param!\n");
-			printf("Allowed params are: 'wolf' or 'mickey'\n");
-			return -1;
+		numRows = 5;
+		numCharsPerRow = 30;
 			
-		}
+	} else if (!strcmp(paramInput, "mickey")) {
+			
+		numRows = 2;
+        numCharsPerRow = 30;
+			
+	} else {
+		
+		printf("ERROR!! wrong param!\n");
+		printf("Allowed params are: 'wolf' or 'mickey'\n");
+		return -1;
+		
 	}
 
 	printAsciiArt(numRows, numCharsPerRow, paramInput);

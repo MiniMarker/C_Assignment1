@@ -4,6 +4,10 @@
 
 #include "program.h"
 
+void calculateRowsAndCols(){
+
+}
+
 /**
  * @brief 
  * 
@@ -18,7 +22,7 @@ void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
 	FILE *file1, *file2, *file3, *resultFile;
 	
 	//concatinating resultFilePath with given param as input and opens the file
-	sprintf(resultFilePath, "./%s/result.txt", paramInput);
+	sprintf(resultFilePath, "./mergedResults/%s_result.txt", paramInput);
 	resultFile = fopen(resultFilePath, "w+");
 	
 	//printing content char by char
