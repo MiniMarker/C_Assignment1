@@ -4,49 +4,13 @@
 
 #include "program.h"
 
-int main(int argc, char* argv[]){
-	
-	char paramInput[10];
-	int numRows = 0;
-	
-	//setting max iterations based on the users input
-	if (argv[1] == NULL || argc != 2 ) {
-	
-		printf("ERROR! Missing param!\n");
-		printf("Allowed params are: 'wolf' or 'mickey'\n");
-		return -1;
-	
-	} else {
-
-		strcpy(paramInput, argv[1]);
-	
-		if(!strcmp(paramInput, "wolf")) {
-			
-			numRows = 5;
-			
-		} else if (!strcmp(paramInput, "mickey")) {
-			
-			numRows = 2;
-			
-		} else {
-		
-			printf("ERROR!! wrong param!\n");
-			printf("Allowed params are: 'wolf' or 'mickey'\n");
-			return -1;
-			
-		}
-	}
-
-	printAsciiArt(numRows, paramInput);
-	return 0;
-}
 /**
  * @brief 
  * 
  * @param numRows 
  * @param paramInput 
  */
-void printAsciiArt(int numRows, char* paramInput){
+void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
 
 	char filename1[35], filename2[35], filename3[35], fileLine1[30], 
 			fileLine2[30], fileLine3[30], resultFilePath[50];
@@ -80,7 +44,7 @@ void printAsciiArt(int numRows, char* paramInput){
 		
 		for (int row = 0; row < 30; row++){
 		
-			for (int i = 0; i < 30; i++) {
+			for (int i = 0; i < numCharsPerRow; i++) {
 			
 				fscanf(file1, "%c", &fileLine1[i]);
 				fscanf(file2, "%c", &fileLine2[i]);
@@ -101,4 +65,7 @@ void printAsciiArt(int numRows, char* paramInput){
 	fclose(resultFile);
 
 	printf("Merging complete, please open '%s' to see the result!\n", resultFilePath);
+
+	system("gedit");
+
 }
