@@ -40,3 +40,5 @@ int main(int argc, char* argv[]){
 	printAsciiArt(numRows, numCharsPerRow, paramInput);
 	return 0;
 }
+
+//make some ganges to force git commit
