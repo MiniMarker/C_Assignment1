@@ -4,8 +4,49 @@
 
 #include "program.h"
 
-void calculateRowsAndCols(){
+void calculateRowsAndCols(const char *paramInput){
 
+	int numberOfFiles = 0, rows, cols;
+    FILE *countFile, *listFile;
+    char fileName[30], cmd[30], input[30];
+
+    // ADD ARGV CHECKS!
+
+    sprintf(cmd, "ls %s | wc -l > fileInfo.txt", paramInput);
+	printf("2\n");
+    system("touch fileInfo.txt");
+	printf("3\n");
+    system(cmd);
+	printf("4\n");
+
+    //open the created file and read content
+    countFile = fopen("fileInfo.txt", "r");
+	printf("5\n");
+    fscanf(countFile, "%d", &numberOfFiles);
+	printf("6\n");
+    printf("Number of files in folder: %d\n", numberOfFiles);
+
+    sprintf(cmd, "ls %s > fileInfo.txt", paramInput);
+    system(cmd);
+
+    for(int i = 0; i < numberOfFiles; i++) {
+        //overwriting the the filenames until the last name is left
+        fscanf(countFile, "%s", fileName);
+    }
+
+    // converting char to int by subtracting the ASCII-value of 0 (48).
+    cols = (fileName[5] - '0') + 1;
+    rows = numberOfFiles / cols;
+
+
+    printf("The last file in the folder: %s\n", fileName);
+    printf("Cols in grid: %d\n", cols);
+    printf("Rows in grid: %d\n", rows);
+
+    fclose(countFile);
+    //system("rm fileInfo.txt");
+
+	printAsciiArt(rows, 30, paramInput);
 }
 
 /**

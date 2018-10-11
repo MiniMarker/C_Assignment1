@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[]){
 	
-	char paramInput[10];
+	char paramInput[30];
 	int numRows = 0, numCharsPerRow = 0;
 	
 	//setting max iterations based on the users input
@@ -18,7 +18,10 @@ int main(int argc, char* argv[]){
 	} 
     
 	strcpy(paramInput, argv[1]);
+
+	calculateRowsAndCols(paramInput);
 	
+	/*
     if(!strcmp(paramInput, "wolf")) {
 		
 		numRows = 5;
@@ -36,7 +39,8 @@ int main(int argc, char* argv[]){
 		return -1;
 		
 	}
+	*/
 
-	printAsciiArt(numRows, numCharsPerRow, paramInput);
+	//printAsciiArt(numRows, numCharsPerRow, paramInput);
 	return 0;
 }
