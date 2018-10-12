@@ -5,9 +5,11 @@
 #include "program.h"
 
 int main(int argc, char* argv[]){
-	
-	char paramInput[10];
-	int numRows = 0, numCharsPerRow = 0;
+
+	char *paramInput;
+	int numRows = 0;
+
+	paramInput = malloc(25 * sizeof(char));
 	
 	//setting max iterations based on the users input
 	if (argv[1] == NULL || argc != 2 ) {
@@ -22,12 +24,10 @@ int main(int argc, char* argv[]){
     if(!strcmp(paramInput, "wolf")) {
 		
 		numRows = 5;
-		numCharsPerRow = 30;
 			
 	} else if (!strcmp(paramInput, "mickey")) {
 			
 		numRows = 2;
-        numCharsPerRow = 30;
 			
 	} else {
 		
@@ -37,8 +37,8 @@ int main(int argc, char* argv[]){
 		
 	}
 
-	printAsciiArt(numRows, numCharsPerRow, paramInput);
+	printAsciiArt(numRows, paramInput);
+
+	free(paramInput);
 	return 0;
 }
-
-//make some ganges to force git commit

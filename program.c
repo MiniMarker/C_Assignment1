@@ -4,25 +4,33 @@
 
 #include "program.h"
 
-void calculateRowsAndCols(){
+void printAsciiArt(int numRows, char* paramInput){
 
-}
+	char *filename1, *filename2, *filename3, *fileLine1, 
+			*fileLine2, *fileLine3, *resultFilePath;
 
-/**
- * @brief 
- * 
- * @param numRows 
- * @param paramInput 
- */
-void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
+	int resultFilePathLength = strlen(paramInput) + 26;
+	int filenameLength = (2 * strlen(paramInput)) + 17;
 
-	char filename1[35], filename2[35], filename3[35], fileLine1[30], 
-			fileLine2[30], fileLine3[30], resultFilePath[50];
+	filename1 = malloc(filenameLength * sizeof(char));
+	filename2 = malloc(filenameLength * sizeof(char));
+	filename3 = malloc(filenameLength * sizeof(char));
+	fileLine1 = malloc(31 * sizeof(char));
+	fileLine2 = malloc(31 * sizeof(char));
+	fileLine3 = malloc(31 * sizeof(char));
+
+	resultFilePath = malloc(resultFilePathLength * sizeof(char));
+
+	if(!filename1 || !filename2 || !filename3 || !fileLine1 || !fileLine2 || !fileLine3 || !resultFilePath) {
+		printf("ERROR! cannot allocate memory..");
+		return;
+	}
 
 	FILE *file1, *file2, *file3, *resultFile;
 	
 	//concatinating resultFilePath with given param as input and opens the file
-	sprintf(resultFilePath, "./mergedResults/%s_result.txt", paramInput);
+	snprintf(resultFilePath, resultFilePathLength, "./mergedFiles/%s_result.txt", paramInput);
+	
 	resultFile = fopen(resultFilePath, "w+");
 	
 	//printing content char by char
@@ -31,9 +39,9 @@ void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
 		int x = 0;
 		
 		//concatinating file paths
-		sprintf(filename1, "./%s/part_%d_%d_%s.txt", paramInput, x, y, paramInput);
-		sprintf(filename2, "./%s/part_%d_%d_%s.txt", paramInput, x + 1, y, paramInput);
-		sprintf(filename3, "./%s/part_%d_%d_%s.txt", paramInput, x + 2, y, paramInput);
+		snprintf(filename1, filenameLength, "./%s/part_%d_%d_%s.txt", paramInput, x, y, paramInput);
+		snprintf(filename2, filenameLength, "./%s/part_%d_%d_%s.txt", paramInput, x + 1, y, paramInput);
+		snprintf(filename3, filenameLength, "./%s/part_%d_%d_%s.txt", paramInput, x + 2, y, paramInput);
 		
 		//opening files	
 		file1 = fopen(filename1, "r");
@@ -48,14 +56,18 @@ void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
 		
 		for (int row = 0; row < 30; row++){
 		
-			for (int i = 0; i < numCharsPerRow; i++) {
+			for (int i = 0; i < 30; i++) {
 			
 				fscanf(file1, "%c", &fileLine1[i]);
 				fscanf(file2, "%c", &fileLine2[i]);
 				fscanf(file3, "%c", &fileLine3[i]);
 				
 			}
-			
+
+			fileLine1[30] = '\0';
+			fileLine2[30] = '\0';
+			fileLine3[30] = '\0';
+
 			fprintf(resultFile, "%s%s%s\n", fileLine1, fileLine2, fileLine3);
 		}
 		
@@ -64,10 +76,20 @@ void printAsciiArt(int numRows, int numCharsPerRow, char* paramInput){
 		fclose(file2);
 		fclose(file3);
 	}
+
+	free(filename1);
+	free(filename2);
+	free(filename3);
+
+	free(fileLine1);
+	free(fileLine2);
+	free(fileLine3);
 	
 	//closing result files
+	
 	fclose(resultFile);
-
+	
 	printf("Merging complete, please open '%s' to see the result!\n", resultFilePath);
+	free(resultFilePath);
 
 }

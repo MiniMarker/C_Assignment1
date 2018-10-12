@@ -3,7 +3,7 @@
 ## How to run the program
 1. Clone this repo
 2. In folder compile using:
-  * `gcc main.c program.c -o program`
+  * `make`
 3. Run the program using:
   * `./program <param>`
   * Only 'wolf' and 'mickey' are allowed params
